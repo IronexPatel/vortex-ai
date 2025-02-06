@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Typewriter from "typewriter-effect";
 import { useAuth } from "@clerk/nextjs";
@@ -56,14 +54,18 @@ export const LandingHero = () => {
       </div>
 
       {/* Hero Image with fade-in and scaling animation */}
-      <div className="lg:max-w-6xl lg:mx-auto animate__animated animate__fadeIn animate__delay-3s">
-        <Image
-          className="transform scale-90 lg:scale-100 animate__animated animate__zoomIn"
-          src="/hero-image.png" // Ensure the path is correct
-          alt="Vortex Hero Illustration"
-          width={800} // Set width as a number
-          height={600} // Set height as a number
-        />
+      <div className="flex justify-center items-center animate__animated animate__fadeIn animate__delay-3s">
+        <div className="relative w-full max-w-4xl lg:max-w-6xl">
+          <Image
+            className="transform scale-90 lg:scale-100 animate__animated animate__zoomIn"
+            src="/hero-image.png" // Ensure the path is correct
+            alt="Vortex Hero Illustration"
+            width={1200} // Adjust the width for larger screens
+            height={800} // Adjust the height to match the aspect ratio
+            objectFit="cover" // Ensure the image covers its container
+            objectPosition="center" // Position the image correctly
+          />
+        </div>
       </div>
     </div>
   );

@@ -31,7 +31,7 @@ const tools = [
     href: "/vision",
     color: "text-emerald-400",
     bgColor: "bg-emerald-500/10",
-    disabled: false,
+    disabled: true,
   },
     {
         label: "Video Generation",

@@ -2,12 +2,10 @@
 
 import { cn } from "@/lib/utils";
 import { CodeXml, ImageIcon, LayoutDashboard, MessagesSquare, Settings, VenetianMaskIcon, VideoIcon } from "lucide-react";
-import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
 const routes = [
   {
@@ -64,14 +62,16 @@ const Sidebar = () => {
   const pathname = usePathname();
   return (
     <div className="flex flex-col h-full bg-gray-800 text-white shadow-lg border-r border-gray-700 transition-all duration-300 ease-in-out transform">
-      {/* Logo and Title */}
+      {/* Logo Only */}
       <div className="px-6 py-6 flex items-center space-x-4">
         <div className="relative w-10 h-10">
-          <Image fill alt="Logo" src="/logo1.png" />
+          <Image
+            src="/logo-colorful.svg" // Displaying your colorful logo
+            alt="Logo"
+            width={40} // Adjust the width to fit the sidebar
+            height={40} // Adjust the height to fit the sidebar
+          />
         </div>
-        <h1 className={cn("text-2xl font-bold", montserrat.className)}>
-          Whiz
-        </h1>
       </div>
 
       {/* Sidebar Links */}

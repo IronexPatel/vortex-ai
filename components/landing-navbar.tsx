@@ -1,17 +1,9 @@
 "use client";
-import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useAuth } from "@clerk/nextjs";
-
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-
-const font = Montserrat({
-  weight: "600",
-  subsets: ["latin"],
-});
 
 export const LandingNavbar = () => {
   const { isSignedIn } = useAuth();
@@ -20,17 +12,15 @@ export const LandingNavbar = () => {
   return (
     <nav className="p-4 bg-transparent flex items-center justify-between relative">
       <Link href="/" className="flex items-center">
-        <div className="relative h-8 w-8 mr-4">
+        {/* Only SVG Logo (without text) */}
+        <div className="relative h-8 w-auto mr-4">
           <Image
-            src="/logo1.png"
-            alt="Logo"
-            width={32} // Specify the width
-            height={32} // Specify the height
+            src="/logo-colorful.svg" // Path to your SVG logo
+            alt="Whiz Logo"
+            width={150} // Adjust width to your preference
+            height={40} // Adjust height to your preference
           />
         </div>
-        <h1 className={cn("text-2xl font-bold text-gray-800", font.className)}>
-          Whiz
-        </h1>
       </Link>
 
       {/* Desktop Navbar Items */}
@@ -73,7 +63,7 @@ export const LandingNavbar = () => {
 
       {/* Mobile Navbar Items */}
       {isMenuOpen && (
-        <div className="lg:hidden absolute top-16 right-0 bg-white p-4 w-3/4 rounded-lg shadow-xl">
+        <div className="lg:hidden absolute top-16 right-0 bg-white p-4 w-3/4 rounded-lg shadow-xl transition-all duration-300 ease-in-out transform">
           {/* Terms and Conditions Text Link */}
           <Link href="/terms-and-conditions">
             <span className="w-full text-center text-purple-500 text-xs hover:text-purple-700">
@@ -83,7 +73,9 @@ export const LandingNavbar = () => {
 
           {/* Get Started Button */}
           <Link href={isSignedIn ? "/dashboard" : "/sign-up"} passHref>
-            <Button className="w-full text-center text-purple-500 p-3">Get Started</Button>
+            <Button className="w-full text-center text-purple-500 p-3">
+              Get Started
+            </Button>
           </Link>
         </div>
       )}
